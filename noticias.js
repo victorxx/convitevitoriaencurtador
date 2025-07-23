@@ -33,8 +33,20 @@ document.addEventListener('DOMContentLoaded', () => {
   ];
 
   let indexAtual = 0;
+
+  // Container onde as notícias vão aparecer
   const container = document.getElementById('noticias');
-  const botao = document.getElementById('carregarMais');
+
+  // Cria o botão dinamicamente
+  const botao = document.createElement('button');
+  botao.id = 'carregarMais';
+  botao.textContent = 'Carregar próxima notícia';
+  botao.style.marginTop = '20px';
+  botao.style.padding = '10px 20px';
+  botao.style.fontSize = '16px';
+
+  // Adiciona o botão ao final da página
+  document.body.appendChild(botao);
 
   function carregarNoticia() {
     if (indexAtual < noticias.length) {
@@ -50,7 +62,6 @@ document.addEventListener('DOMContentLoaded', () => {
       indexAtual++;
     }
 
-    // Oculta o botão se não houver mais notícias
     if (indexAtual >= noticias.length) {
       botao.style.display = 'none';
     }
